@@ -4,7 +4,7 @@ function Install-PatchFile
 
 .VERSION 1.0
 
-.GUID d32c936b-f8b0-4803-9341-ca97e7822ffc
+.GUID 2a962657-11e4-41b6-a514-2bf7c0fac9a5
 
 .AUTHOR chrisdalrymple
 
@@ -56,7 +56,7 @@ function Install-PatchFile
     # If same file exists in destination directory, rename it to $filename.bkup
     $PatchFileName = Split-Path -Path $SourceFile -Leaf
     $OriginalFilePath = Join-Path -Path $Destination -ChildPath $PatchFileName
-    Backup-InstallationFile $OriginalFilePath
+    Backup-InstallationFile -Path $OriginalFilePath
 
     # Create a symlink to the patch file in the destination directory, if it doesn't already exist
     if (-Not (Test-Path -Path $OriginalFilePath -PathType 'Leaf'))

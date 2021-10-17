@@ -3,14 +3,13 @@ Function Confirm-IsLink
     [CmdletBinding()]
     Param(
         [Parameter(Mandatory=$true, Position=1)]
-        [ValidateScript({})]
-        [string]$Source,
+        [string]$Path,
         [Parameter(Mandatory=$false, Position=2)]
         [string]$LinkType
     )
 
     # Translate parameter into absolute paths
-    $SourceFile = Resolve-Path -Path $Source
+    $SourceFile = Resolve-Path -Path $Path
 
     # Verify if the path entered is a link
     if ($LinkType)
